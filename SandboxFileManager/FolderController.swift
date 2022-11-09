@@ -126,7 +126,14 @@ extension FolderController: UIImagePickerControllerDelegate, UINavigationControl
             print("imagePath URL ", imagePath)
             
             if let jpegData = image.jpegData(compressionQuality: 1.0) {
-                try? jpegData.write(to: imagePath)
+                do {
+                    try jpegData.write(to: imagePath)
+                } catch {
+                    let alert = UIAlertController(title: "Ошибка создания файла", message: error.localizedDescription, preferredStyle: .alert)
+                    let alertAction = UIAlertAction(title: "Понятно", style: .default)
+                    alert.addAction(alertAction)
+                    present(alert, animated: true)
+                }
             }
             
             tableView.reloadData()
