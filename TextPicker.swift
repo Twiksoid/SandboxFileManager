@@ -14,19 +14,19 @@ class TextPicker {
     
     func getText(in viewController: UIViewController, completion: ((_ text: String)->Void)? )  {
         
-        let alertController = UIAlertController(title: "Enter text", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Создание новой папки", message: nil, preferredStyle: .alert)
         
         alertController.addTextField {
-            textFiel in textFiel.placeholder = "Enter text"
+            textFiel in textFiel.placeholder = "Введите имя папки"
         }
         
-        let actionOK = UIAlertAction(title: "Ok", style: .default) { alert in
+        let actionOK = UIAlertAction(title: "Сохранить", style: .default) { alert in
             if let text = alertController.textFields?[0].text, text != "" {
-            completion?(text)
-        }
+                completion?(text)
+            }
             
         }
-        let actionCansel = UIAlertAction(title: "Cansel", style: .cancel)
+        let actionCansel = UIAlertAction(title: "Отменить", style: .cancel)
         
         alertController.addAction(actionOK)
         alertController.addAction(actionCansel)
