@@ -14,6 +14,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        print("Папка бандла", Bundle.main.bundleURL)
+//
+//        // Песочница кладет данные туда
+//        print("Адрес файлового менеджера для 0-его элемента, тут путь в url-формате", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])
+//       // Или сюда
+//        print("Непосредственно путь до нужной папки, как в системе", NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
+//
+//        let atURL = Bundle.main.url(forResource: "Image", withExtension: "jpg")!
+//        let toURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appending(path: "photo.jpg")
+//
+//        print("Куда будет перекладывать фото", toURL)
+//
+//        do {
+//            try FileManager.default.copyItem(at: atURL, to: toURL)
+//            //try FileManager.default.removeItem(at: toURL)
+//        } catch {
+//            print(error)
+//        }
+//
+//        // получить содержимое папки
+//        let content = try? FileManager.default.contentsOfDirectory(atPath: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].path)
+//        print(content)
+        
         return true
     }
 
