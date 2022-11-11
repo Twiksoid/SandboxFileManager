@@ -10,7 +10,13 @@ import UIKit
 class LoginController: UIViewController {
     
     private var triesOfEnterPassword: Int = 0
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "loginSegue", let folderVC = segue.destination as? FolderController {
+            navigationController?.pushViewController(folderVC, animated: true)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
@@ -36,14 +42,11 @@ class LoginController: UIViewController {
         alarm.addAction(alarmAction)
         present(alarm, animated: true)
     }
-
+    
     @IBOutlet weak var makePasswordTitle: UIButton!
     
     @IBAction func makePasswordButton(_ sender: Any) {
         view.endEditing(true)
-        // увеличили счетчик тк зашли в попытку пароля
-        triesOfEnterPassword += 1
-        //triesOfEnterPassword + 1
         
         if enterPasswordField.text != "" {
             if enterPasswordField.text!.count < 4 {
@@ -54,6 +57,10 @@ class LoginController: UIViewController {
             } else {
                 // У нас больше 4 символов, поэтому можно пойти искать пароль
                 // создаем объект
+                
+                // увеличили счетчик тк зашли в попытку пароля
+                triesOfEnterPassword += 1
+                
                 let keyChainSwift = KeychainSwift()
                 
                 // проверяем существовавание ключа
@@ -62,7 +69,13 @@ class LoginController: UIViewController {
                 
                 if keyChainSwift.get("password") == nil {
                     keyChainSwift.set(enterPasswordField.text!, forKey: "password")
-                    navigationController?.pushViewController(FolderController(), animated: true)
+                    
+                    // если пароля не было, то сразу идем на экран дальше
+                    
+                    //                    if let folderVC = self.storyboard?.instantiateViewController(withIdentifier: "FolderVC") {
+                    //                        self.navigationController!.pushViewController(folderVC, animated: true)}
+                    //performSegue(withIdentifier: "loginSegue", sender: self)
+                    //navigationController?.pushViewController(FolderController(), animated: true)
                 } else {
                     let password = keyChainSwift.get("password")!
                     print("Пароль на этапе проверки", password)
@@ -75,7 +88,7 @@ class LoginController: UIViewController {
                         let goToFolderVC = FolderController()
                         goToFolderVC.modalPresentationStyle = .currentContext
                         navigationController?.pushViewController(goToFolderVC, animated: true)
-                       
+                        
                     } else {
                         // пароль не совпал, начинаем перебор
                         switch triesOfEnterPassword {
@@ -86,20 +99,19 @@ class LoginController: UIViewController {
                             alarmForIncorrectPassword()
                             triesOfEnterPassword = 0
                         default:
-                            print("Alarm")
+                            print("Alarm there is more than 2 tries")
                         }
                     }
                 }
-                
-                
-                
-            }} else {
-                // тут когда поле вообще пустое
-                let alarm = UIAlertController(title: "Пустое поле", message: "Для продолжения необходимо ввести пароль от 4 символов", preferredStyle: .alert)
-                let alertAction = UIAlertAction(title: "Ok", style: .default)
-                alarm.addAction(alertAction)
-                present(alarm, animated: true)
             }
+            
+        } else {
+            // тут когда поле вообще пустое
+            let alarm = UIAlertController(title: "Пустое поле", message: "Для продолжения необходимо ввести пароль от 4 символов", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Ok", style: .default)
+            alarm.addAction(alertAction)
+            present(alarm, animated: true)
+        }
     }
     @IBOutlet weak var enterPasswordField: UITextField!
 }

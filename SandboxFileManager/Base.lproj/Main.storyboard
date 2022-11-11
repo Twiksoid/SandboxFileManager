@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IYw-lY-tKa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BvP-ga-tcd">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -8,6 +8,82 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Item-->
+        <scene sceneID="viG-9E-Qrp">
+            <objects>
+                <viewController id="BvP-ga-tcd" customClass="LoginController" customModule="SandboxFileManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wR9-OU-HYx">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите пароль" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xzy-9Q-T6t">
+                                <rect key="frame" x="121" y="325" width="151" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaT-UJ-IIB">
+                                <rect key="frame" x="121" y="400" width="151" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Создать пароль"/>
+                                <connections>
+                                    <action selector="makePasswordButton:" destination="BvP-ga-tcd" eventType="touchUpInside" id="5np-IQ-CG0"/>
+                                    <segue destination="BwX-ca-66e" kind="presentation" identifier="buttonLoginSegue" modalPresentationStyle="fullScreen" id="Oi7-2X-1yA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CaQ-xG-sA3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Qua-Nn-wud"/>
+                    <connections>
+                        <outlet property="enterPasswordField" destination="Xzy-9Q-T6t" id="Brk-sW-f78"/>
+                        <outlet property="makePasswordTitle" destination="VaT-UJ-IIB" id="MMZ-Fa-fi8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cSz-4o-RcN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-703" y="-59"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="y44-3e-eAE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="abU-sC-Zzb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sf5-8I-FuF">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1IH-pS-BHF" kind="relationship" relationship="rootViewController" id="s6M-Im-xor"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AKz-dy-Jd7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="97" y="598"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="L3W-6h-nGd">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="92u-O1-ce5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="BwX-ca-66e" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="voB-1t-sLD"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fXm-7R-kXk">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="IYw-lY-tKa" kind="relationship" relationship="viewControllers" id="rnF-qd-LFt"/>
+                        <segue destination="1IH-pS-BHF" kind="relationship" relationship="viewControllers" id="m4F-8O-sRM"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="115" y="-59"/>
+        </scene>
         <!--Файловый менеджер-->
         <scene sceneID="G6q-uh-FKG">
             <objects>
@@ -75,62 +151,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p26-6i-tPR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1778" y="495"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="viG-9E-Qrp">
-            <objects>
-                <viewController id="BvP-ga-tcd" customClass="LoginController" customModule="SandboxFileManager" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wR9-OU-HYx">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите пароль" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xzy-9Q-T6t">
-                                <rect key="frame" x="121" y="325" width="151" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaT-UJ-IIB">
-                                <rect key="frame" x="121" y="400" width="151" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Создать пароль"/>
-                                <connections>
-                                    <action selector="makePasswordButton:" destination="BvP-ga-tcd" eventType="touchUpInside" id="5np-IQ-CG0"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="CaQ-xG-sA3"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Qua-Nn-wud"/>
-                    <connections>
-                        <outlet property="enterPasswordField" destination="Xzy-9Q-T6t" id="Brk-sW-f78"/>
-                        <outlet property="makePasswordTitle" destination="VaT-UJ-IIB" id="MMZ-Fa-fi8"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cSz-4o-RcN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-593.12977099236639" y="-59.154929577464792"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="y44-3e-eAE">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AKz-dy-Jd7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="abU-sC-Zzb" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sf5-8I-FuF">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="1IH-pS-BHF" kind="relationship" relationship="rootViewController" id="s6M-Im-xor"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="543" y="622"/>
+            <point key="canvasLocation" x="1182" y="385"/>
         </scene>
         <!--Настройки-->
         <scene sceneID="fXS-Rb-4sh">
@@ -140,29 +161,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cqy-GS-hW1">
-                                <rect key="frame" x="312" y="136" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cqy-GS-hW1">
+                                <rect key="frame" x="312" y="136" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Сортировка от А до Я" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVp-gW-GZb">
-                                <rect key="frame" x="40" y="141" width="173" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nip-MI-B8U">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nip-MI-B8U">
                                 <rect key="frame" x="40" y="217" width="164" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Изменить пароль"/>
                                 <connections>
                                     <action selector="setNewPasswordButton:" destination="IYw-lY-tKa" eventType="touchUpInside" id="n2k-Yo-m5c"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сортировка от А до Я" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVp-gW-GZb">
+                                <rect key="frame" x="40" y="138" width="173" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="i9G-FM-jMw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yVp-gW-GZb" firstAttribute="leading" secondItem="i9G-FM-jMw" secondAttribute="leading" constant="40" id="8Tg-qu-Q2E"/>
+                            <constraint firstItem="cqy-GS-hW1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yVp-gW-GZb" secondAttribute="trailing" constant="8" symbolic="YES" id="J6f-aY-Zvy"/>
+                            <constraint firstItem="cqy-GS-hW1" firstAttribute="top" secondItem="i9G-FM-jMw" secondAttribute="top" constant="77" id="Ny0-8K-MaN"/>
+                            <constraint firstItem="i9G-FM-jMw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Nip-MI-B8U" secondAttribute="trailing" symbolic="YES" id="PsR-JA-Yfp"/>
+                            <constraint firstItem="yVp-gW-GZb" firstAttribute="top" secondItem="i9G-FM-jMw" secondAttribute="top" constant="79" id="QLo-6h-8sV"/>
+                            <constraint firstItem="cqy-GS-hW1" firstAttribute="leading" secondItem="yVp-gW-GZb" secondAttribute="trailing" constant="99" id="nAY-FB-cAb"/>
+                            <constraint firstItem="Nip-MI-B8U" firstAttribute="leading" secondItem="i9G-FM-jMw" secondAttribute="leading" constant="40" id="oYs-oF-ywE"/>
+                            <constraint firstItem="Nip-MI-B8U" firstAttribute="top" secondItem="yVp-gW-GZb" secondAttribute="bottom" constant="58.670000000000002" id="yzX-ls-Ktq"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Настройки" image="rosette" catalog="system" id="8hJ-HV-HIE"/>
                     <connections>
@@ -171,30 +200,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAb-8q-e9d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1741" y="-317"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="L3W-6h-nGd">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="BwX-ca-66e" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fXm-7R-kXk">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="IYw-lY-tKa" kind="relationship" relationship="viewControllers" id="rnF-qd-LFt"/>
-                        <segue destination="1IH-pS-BHF" kind="relationship" relationship="viewControllers" id="m4F-8O-sRM"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="92u-O1-ce5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="542.74809160305347" y="-59.154929577464792"/>
+            <point key="canvasLocation" x="1181" y="-339"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="m4F-8O-sRM"/>
+        <segue reference="s6M-Im-xor"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="folder" catalog="system" width="128" height="96"/>
