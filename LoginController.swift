@@ -69,13 +69,8 @@ class LoginController: UIViewController {
                 
                 if keyChainSwift.get("password") == nil {
                     keyChainSwift.set(enterPasswordField.text!, forKey: "password")
-                    
                     // если пароля не было, то сразу идем на экран дальше
-                    
-                    //                    if let folderVC = self.storyboard?.instantiateViewController(withIdentifier: "FolderVC") {
-                    //                        self.navigationController!.pushViewController(folderVC, animated: true)}
-                    //performSegue(withIdentifier: "loginSegue", sender: self)
-                    //navigationController?.pushViewController(FolderController(), animated: true)
+                    // предварительно его записав
                 } else {
                     let password = keyChainSwift.get("password")!
                     print("Пароль на этапе проверки", password)

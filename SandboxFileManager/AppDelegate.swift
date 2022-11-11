@@ -23,8 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(false, forKey: "passwordSet")
         }
         
-        // По умолчанию сортирвока включена, создаем сразу ключ и присваиваем ему значение
-        if UserDefaults.standard.bool(forKey: "sortValues") {
+        // По умолчанию сортировка включена, создаем сразу ключ и присваиваем ему значение
+        
+        if UserDefaults.standard.bool(forKey: "sortValues") == true || UserDefaults.standard.bool(forKey: "sortValues") == false {
             print("Ключ sortValues уже был, не трогаем ключ")
         } else {
             UserDefaults.standard.set(true, forKey: "sortValues")
