@@ -14,6 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        // создаем ключ для отслеживания ввода пароля
+        // по умолчанию задаем ему значение false тк на старте еще ничего не трогали
+        
+        if UserDefaults.standard.objectIsForced(forKey: "passwordSet") {
+            print("Ключ уже был, не трогаем ключ")
+        } else {
+            UserDefaults.standard.set(false, forKey: "passwordSet")
+        }
+        
         return true
     }
     
