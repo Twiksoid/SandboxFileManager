@@ -34,6 +34,11 @@ class SettingsViewController: UIViewController {
                         // тут еще проверить не пустое поле и 4+ символа
                         if textField[0].text != "", textField[0].text!.count >= 4 {
                             keychainSwift.set(newPassword, forKey: "password")
+                            // уведомляю, что обновил
+                            let alarm = UIAlertController(title: "Обновление успешно", message: "Установлен новый пароль", preferredStyle: .alert)
+                            let actionOk = UIAlertAction(title: "Ok", style: .default)
+                            alarm.addAction(actionOk)
+                            self.present(alarm, animated: true)
                         } else {
                             // чет пошло не так, не сохраняем, другой алерт
                             let alarmForNotSaved = UIAlertController(title: "Новый пароль не сохранен", message: "Для сохранения данных длина пароля должна быть от 4х символов", preferredStyle: .alert)
@@ -53,6 +58,12 @@ class SettingsViewController: UIViewController {
             
             alarm.addAction(actionSave)
             alarm.addAction(actionCansel)
+            present(alarm, animated: true)
+        } else {
+            let alert = UIAlertController(title: "Не задан пароль", message: "В связке ключей отсутствует начальный пароль. Необходимо обратиться к разработчику", preferredStyle: .alert)
+            let actionOk = UIAlertAction(title: "Ok", style: .default)
+            alert.addAction(actionOk)
+            present(alert, animated: true)
         }
     }
     

@@ -19,7 +19,6 @@
 		1D66E6FC2919782B00B99F64 /* Image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D66E6FB2919782B00B99F64 /* Image.jpg */; };
 		1D66E6FE29197AF500B99F64 /* FolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D66E6FD29197AF500B99F64 /* FolderController.swift */; };
 		1D66E7002919819000B99F64 /* TextPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D66E6FF2919819000B99F64 /* TextPicker.swift */; };
-		1DE785E9291B9EB200478C4D /* FolderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE785E8291B9EB200478C4D /* FolderViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +36,6 @@
 		1D66E6FB2919782B00B99F64 /* Image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image.jpg; sourceTree = "<group>"; };
 		1D66E6FD29197AF500B99F64 /* FolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderController.swift; sourceTree = "<group>"; };
 		1D66E6FF2919819000B99F64 /* TextPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPicker.swift; sourceTree = "<group>"; };
-		1DE785E8291B9EB200478C4D /* FolderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +54,6 @@
 			children = (
 				1D1199D6291DEE3200B7EE57 /* LoginController.swift */,
 				1D1199D8291E33CD00B7EE57 /* KeychainSwift.swift */,
-				1DE785E8291B9EB200478C4D /* FolderViewCell.swift */,
 				1D66E6FF2919819000B99F64 /* TextPicker.swift */,
 				1D66E6E62919733D00B99F64 /* SandboxFileManager */,
 				1D66E6E52919733D00B99F64 /* Products */,
@@ -160,7 +157,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DE785E9291B9EB200478C4D /* FolderViewCell.swift in Sources */,
 				1D66E6EC2919733D00B99F64 /* ViewController.swift in Sources */,
 				1D66E7002919819000B99F64 /* TextPicker.swift in Sources */,
 				1D66E6FE29197AF500B99F64 /* FolderController.swift in Sources */,
