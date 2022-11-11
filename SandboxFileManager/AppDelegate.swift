@@ -17,10 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // создаем ключ для отслеживания ввода пароля
         // по умолчанию задаем ему значение false тк на старте еще ничего не трогали
         
-        if UserDefaults.standard.objectIsForced(forKey: "passwordSet") {
-            print("Ключ уже был, не трогаем ключ")
+        if UserDefaults.standard.bool(forKey: "passwordSet") {
+            print("Ключ passwordSet уже был, не трогаем ключ")
         } else {
             UserDefaults.standard.set(false, forKey: "passwordSet")
+        }
+        
+        // По умолчанию сортирвока включена, создаем сразу ключ и присваиваем ему значение
+        if UserDefaults.standard.bool(forKey: "sortValues") {
+            print("Ключ sortValues уже был, не трогаем ключ")
+        } else {
+            UserDefaults.standard.set(true, forKey: "sortValues")
         }
         
         return true

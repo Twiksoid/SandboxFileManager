@@ -117,6 +117,7 @@
         <!--Navigation Controller-->
         <scene sceneID="y44-3e-eAE">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AKz-dy-Jd7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="abU-sC-Zzb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sf5-8I-FuF">
@@ -128,21 +129,45 @@
                         <segue destination="1IH-pS-BHF" kind="relationship" relationship="rootViewController" id="s6M-Im-xor"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AKz-dy-Jd7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="543" y="622"/>
         </scene>
         <!--Настройки-->
         <scene sceneID="fXS-Rb-4sh">
             <objects>
-                <viewController title="Настройки" id="IYw-lY-tKa" sceneMemberID="viewController">
+                <viewController title="Настройки" id="IYw-lY-tKa" customClass="SettingsViewController" customModule="SandboxFileManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O3A-gd-w5t">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cqy-GS-hW1">
+                                <rect key="frame" x="312" y="136" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Сортировка от А до Я" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVp-gW-GZb">
+                                <rect key="frame" x="40" y="141" width="173" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nip-MI-B8U">
+                                <rect key="frame" x="40" y="217" width="164" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Изменить пароль"/>
+                                <connections>
+                                    <action selector="setNewPasswordButton:" destination="IYw-lY-tKa" eventType="touchUpInside" id="n2k-Yo-m5c"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="i9G-FM-jMw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Настройки" image="rosette" catalog="system" id="8hJ-HV-HIE"/>
+                    <connections>
+                        <outlet property="switcherValue" destination="cqy-GS-hW1" id="tf3-6A-hcP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAb-8q-e9d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -169,7 +194,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="s6M-Im-xor"/>
+        <segue reference="m4F-8O-sRM"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="folder" catalog="system" width="128" height="96"/>

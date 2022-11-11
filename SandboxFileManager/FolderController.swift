@@ -9,6 +9,8 @@ import UIKit
 
 class FolderController: UITableViewController {
     
+    var folderVCDelegate: SettingsViewController?
+    
     var path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
     
     static func openFolderVC(in viewController: UIViewController, with path: String) {
@@ -16,7 +18,6 @@ class FolderController: UITableViewController {
             fc.path = path
             viewController.navigationController?.pushViewController(fc, animated: true)
         }
-        
     }
     
     @IBAction func addNewFolder(_ sender: Any) {
@@ -25,6 +26,17 @@ class FolderController: UITableViewController {
             try? FileManager.default.createDirectory(atPath: pathForNewFolder, withIntermediateDirectories: false)
             self.tableView.reloadData()
         }
+    }
+    
+    private func isSortData() -> [String] {
+        
+        if UserDefaults.standard.bool(forKey: "sortValues") {
+            
+            let sortedContent = content.sorted(by: {$0 < $1})
+            return sortedContent
+        } else {
+            let nonSortedContent = content
+            return nonSortedContent}
     }
     
     
@@ -58,6 +70,7 @@ class FolderController: UITableViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        
     }
     
     @objc func refresh(sender:AnyObject)
@@ -79,9 +92,11 @@ class FolderController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        cell.textLabel?.text = content[indexPath.row]
+        let isSortData = isSortData()
         
-        let fullPath = path + "/" + content[indexPath.row]
+        cell.textLabel?.text = isSortData[indexPath.row]
+        
+        let fullPath = path + "/" + isSortData[indexPath.row]
         
         var isDirect: ObjCBool = false
         FileManager.default.fileExists(atPath: fullPath, isDirectory: &isDirect)
@@ -96,7 +111,8 @@ class FolderController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let pathForDel = path + "/" + content[indexPath.row]
+            let isSortData = isSortData()
+            let pathForDel = path + "/" + isSortData[indexPath.row]
             try? FileManager.default.removeItem(at: URL(fileURLWithPath: pathForDel))
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -105,7 +121,8 @@ class FolderController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let fullPath = path + "/" + content[indexPath.row]
+        let isSortData = isSortData()
+        let fullPath = path + "/" + isSortData[indexPath.row]
         var isDirect: ObjCBool = false
         FileManager.default.fileExists(atPath: fullPath, isDirectory: &isDirect)
         if isDirect.boolValue == true {
