@@ -25,7 +25,6 @@ class LoginController: UIViewController {
         // тут пароль будем хранить
         // по умолчанию ничего не кладем, только создаем
         let keyChainSwift = KeychainSwift()
-        print("Пароль на этапе запуска приложения", keyChainSwift.get("password"))
     }
     
     private func setTitle(){
@@ -56,8 +55,6 @@ class LoginController: UIViewController {
                 present(alarm, animated: true)
             } else {
                 // У нас больше 4 символов, поэтому можно пойти искать пароль
-                // создаем объект
-                
                 // увеличили счетчик тк зашли в попытку пароля
                 triesOfEnterPassword += 1
                 
@@ -69,11 +66,8 @@ class LoginController: UIViewController {
                 
                 if keyChainSwift.get("password") == nil {
                     keyChainSwift.set(enterPasswordField.text!, forKey: "password")
-                    // если пароля не было, то сразу идем на экран дальше
-                    // предварительно его записав
                 } else {
                     let password = keyChainSwift.get("password")!
-                    print("Пароль на этапе проверки", password)
                     // тут у нас уже есть ключ, поэтому нужно проверить его с тем, что ввели
                     
                     if enterPasswordField.text! == password {

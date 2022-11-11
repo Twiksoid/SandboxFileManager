@@ -54,10 +54,11 @@
             </objects>
             <point key="canvasLocation" x="-703" y="-59"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Файловый менеджер-->
         <scene sceneID="y44-3e-eAE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="abU-sC-Zzb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Файловый менеджер" image="folder" catalog="system" id="VqB-Q0-y6G"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sf5-8I-FuF">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -70,7 +71,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKz-dy-Jd7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="97" y="598"/>
+            <point key="canvasLocation" x="1091" y="379"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="L3W-6h-nGd">
@@ -84,7 +85,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="1IH-pS-BHF" kind="relationship" relationship="viewControllers" id="m4F-8O-sRM"/>
+                        <segue destination="abU-sC-Zzb" kind="relationship" relationship="viewControllers" id="CgL-Bg-GdT"/>
                         <segue destination="IYw-lY-tKa" kind="relationship" relationship="viewControllers" id="rnF-qd-LFt"/>
                     </connections>
                 </tabBarController>
@@ -139,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAb-8q-e9d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1181" y="-339"/>
+            <point key="canvasLocation" x="1091" y="-339"/>
         </scene>
         <!--Файловый менеджер-->
         <scene sceneID="G6q-uh-FKG">
@@ -208,12 +209,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p26-6i-tPR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1182" y="385"/>
+            <point key="canvasLocation" x="2077" y="379"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="s6M-Im-xor"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="folder" catalog="system" width="128" height="96"/>
         <image name="folder.badge.plus" catalog="system" width="128" height="92"/>
